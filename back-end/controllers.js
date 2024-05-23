@@ -68,7 +68,8 @@ exports.getSights = (req, res, next) => {
     })
     .then((response) => {
       res.status(200).send(response)
-    });
+    })
+    .catch(next)
 };
 
 exports.postNewRoute = (req, res, next) => {
