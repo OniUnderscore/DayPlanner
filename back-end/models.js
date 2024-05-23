@@ -1,9 +1,5 @@
-const connection = require("./index");
-const mongoose = require("mongoose");
 const { getRadius, getData, makeRoute } = require("./Database/apiCalls");
-const { response } = require("./app");
 const { Location, User, Route } = require("./Database/schemas_models");
-const { coolDownAsync } = require("expo-web-browser");
 
 exports.fetchSightsById = (id) => {
   return Location.find({ id: id })
@@ -196,40 +192,53 @@ exports.fetchAllSights = (lon, lat, radius, filters) => {
 };
 
 exports.postRoutes = (user, sights) => {
+  const coordinateArray = sights.map((sight) => {
+    return [sight.lon, sight.lat];
+  });
+  const sightIds = sights.map((sight) => {
+    return sight.id;
+  });
 
-    const coordinateArray = sights.map((sight) => {
-        return [sight.lon, sight.lat]
-    })
-    const sightIds = sights.map((sight) => {
-        return sight.id
-    })
+  return Promise.all([
+    Location.find({}, "id").exec(),
+    User.find({ username: user }),
+  ])
+    .then((response) => {
+      console.log(response[1]);
+      const ids = response[0].map((id) => {
+        return id.id;
+      });
 
-  return Promise.all([Location.find({}, 'id').exec(), User.find({username: user})])
-  .then((response) => {
-    console.log(response[1])
-    const ids = response[0].map((id) => {
-        return id.id
-    })
- 
-    coordinateArray.unshift([response[1][0].settings.location.lon, response[1][0].settings.location.lat])
-    
-      return Promise.all([makeRoute(coordinateArray), ids])
+      coordinateArray.unshift([
+        response[1][0].settings.location.lon,
+        response[1][0].settings.location.lat,
+      ]);
+
+      return Promise.all([makeRoute(coordinateArray), ids]);
     })
     .then((response) => {
-        const filteredSights = sights.filter((sight) => {
-            return !response[1].includes(sight.id)
-        })
-        const routeObject = {username : user, routePolyLine: response[0], sights: sightIds}
-        const newRoute = new Route(routeObject)
-    
-        return Promise.all([routeObject, newRoute.save(), Promise.all([filteredSights.map((sight) => {
-            const newSight = new Location(sight)
-            return newSight.save()
-        })
-    ])])
+      const filteredSights = sights.filter((sight) => {
+        return !response[1].includes(sight.id);
+      });
+      const routeObject = {
+        username: user,
+        routePolyLine: response[0],
+        sights: sightIds,
+      };
+      const newRoute = new Route(routeObject);
+
+      return Promise.all([
+        routeObject,
+        newRoute.save(),
+        Promise.all([
+          filteredSights.map((sight) => {
+            const newSight = new Location(sight);
+            return newSight.save();
+          }),
+        ]),
+      ]);
     })
     .then((response) => {
-        return response[0]
-    })
-
-}
+      return response[0];
+    });
+};

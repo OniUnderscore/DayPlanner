@@ -1,9 +1,6 @@
-const express = require("express");
 const app = require("../app");
-const connection = require("../index");
 const seed = require("../seed.mongodb");
 const request = require("supertest");
-const { ObjectId } = require("mongodb");
 const elements = require("../Data/Test_data/routeData");
 
 beforeEach(() => seed());
@@ -439,28 +436,27 @@ describe('GET /api/sights"', () => {
         expect(body.length).toEqual(4);
       });
   }, 20000);
-  test('Should return 404 not found error when passed an incorrect username', ()  => {
+  test("Should return 404 not found error when passed an incorrect username", () => {
     return request(app)
-    .get('/api/sights?username=JamesP')
-    .expect(404)
-    .then(({body}) => {
-      expect(body.msg).toBe('not found')
-    })
-  })
+      .get("/api/sights?username=JamesP")
+      .expect(404)
+      .then(({ body }) => {
+        expect(body.msg).toBe("not found");
+      });
+  });
 });
- describe('ROUTES /api/routes/:username', () => {
-    test('POST request returns 201 status, with a response of ', () => {
-      const body = elements
-      return request(app)
+describe("ROUTES /api/routes/:username", () => {
+  test("POST request returns 201 status, with a response of ", () => {
+    const body = elements;
+    return request(app)
       .post(`/api/routes/JamesO`)
       .send(body)
       .expect(201)
-      .then(({body})=>{
+      .then(({ body }) => {
         const routeObject = body;
 
         expect(routeObject.sights.constructor).toEqual(Array);
-        expect(routeObject.routePolyLine.constructor).toEqual(Array)
-        
-      })
-    });
+        expect(routeObject.routePolyLine.constructor).toEqual(Array);
+      });
+  });
 });

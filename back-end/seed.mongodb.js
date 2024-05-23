@@ -1,10 +1,8 @@
-const { Schema, mongoose, model } = require("mongoose");
+const { mongoose } = require("mongoose");
 const locationsData = require("./Data/Test_data/location");
 const userData = require("./Data/Test_data/user");
-const { ObjectId } = require("mongodb");
 const connection = require("./index");
 const { Location, User, Route } = require("./Database/schemas_models");
-const { response } = require("./app");
 
 function seed() {
   return connection()
@@ -15,7 +13,7 @@ function seed() {
       return User.collection.drop();
     })
     .then(() => {
-      return Route.collection.drop()
+      return Route.collection.drop();
     })
     .then(() => {
       return Promise.all(

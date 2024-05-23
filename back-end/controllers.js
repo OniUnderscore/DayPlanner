@@ -1,4 +1,3 @@
-const { response, search } = require("./app");
 const {
   fetchSightsById,
   fetchAllUsers,
@@ -6,7 +5,7 @@ const {
   saveNewUser,
   updateUser,
   fetchAllSights,
-  postRoutes
+  postRoutes,
 } = require("./models");
 
 exports.getSightsById = (req, res, next) => {
@@ -67,16 +66,16 @@ exports.getSights = (req, res, next) => {
       return fetchAllSights(lon, lat, searchRadius, filters);
     })
     .then((response) => {
-      res.status(200).send(response)
+      res.status(200).send(response);
     })
-    .catch(next)
+    .catch(next);
 };
 
 exports.postNewRoute = (req, res, next) => {
-  const { username } = req.params
-  const {body} = req 
+  const { username } = req.params;
+  const { body } = req;
 
-  return postRoutes(username, body).then((response)=>{
-    res.status(201).send(response)
-  }) 
-}
+  return postRoutes(username, body).then((response) => {
+    res.status(201).send(response);
+  });
+};

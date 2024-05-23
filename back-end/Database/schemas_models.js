@@ -1,5 +1,4 @@
-const { Schema, mongoose, model } = require("mongoose");
-const { route } = require("../app");
+const { Schema, mongoose } = require("mongoose");
 
 const locationSchema = new Schema({
   id: {
@@ -20,9 +19,9 @@ const locationSchema = new Schema({
   },
 });
 const UserSchema = new Schema({
-  displayName : {
+  displayName: {
     type: String,
-    required: true
+    required: true,
   },
   username: {
     type: String,
@@ -34,9 +33,9 @@ const UserSchema = new Schema({
     default:
       "https://upload.wikimedia.org/wikipedia/commons/a/af/Default_avatar_profile.jpg",
   },
-  location : {
+  location: {
     type: String,
-    require: true
+    require: true,
   },
   settings: {
     searchRadius: Number,
@@ -190,18 +189,24 @@ const routeSchema = new Schema({
     required: [true, "Please insert username"],
   },
   routePolyLine: {
-    type: [{longitude : Number, latitude: Number}],
-    required: true
+    type: [{ longitude: Number, latitude: Number }],
+    required: true,
   },
   sights: {
     type: [Number],
-    required: true
-  }
-
-})
+    required: true,
+  },
+});
 
 const Location = mongoose.model("Location", locationSchema);
 const User = mongoose.model("User", UserSchema);
 const Route = mongoose.model("Route", routeSchema);
 
-module.exports = { locationSchema, UserSchema, Location, User, Route, routeSchema };
+module.exports = {
+  locationSchema,
+  UserSchema,
+  Location,
+  User,
+  Route,
+  routeSchema,
+};
