@@ -22,7 +22,7 @@
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
     "@teovilla/react-native-web-maps": "^0.9.5",
-    "axios": "^1.7.0",
+    "axios": "^1.7.2",
     "cors": "^2.8.5",
     "expo": "~51.0.8",
     "expo-constants": "~16.0.1",
