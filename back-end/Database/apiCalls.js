@@ -8,6 +8,8 @@ const overpassApi = axios.create({
   baseURL: "https://overpass-api.de/api",
 });
 
+
+
 exports.getRadius = (lat, lon, radius) => {
   return orsApi
     .post("/v2/isochrones/foot-walking", {
@@ -34,3 +36,13 @@ exports.getData = (queryString) => {
       return response.data.elements;
     });
 };
+
+exports.makeRoute = (coordinateArray) => {
+  return orsApi.post('/v2/directions/foot-walking/geojson', {coordinates : coordinateArray})
+  .then((response) => {
+    const lineCoords = response.data.features[0].geometry.coordinates
+    return lineCoords.map((coord) => {
+      return {latitude: coord[1], longitude: coord[0]}
+    })
+  })
+}

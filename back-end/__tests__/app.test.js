@@ -450,18 +450,17 @@ describe('GET /api/sights"', () => {
 });
  describe('ROUTES /api/routes/:username', () => {
     test('POST request returns 201 status, with a response of ', () => {
-
+      const body = elements
       return request(app)
       .post(`/api/routes/JamesO`)
-      .send(elements)
+      .send(body)
       .expect(201)
       .then(({body})=>{
         const routeObject = body;
 
-        expect(routeObject.id.constructor).toEqual(Array);
-        routeObject.routeCoordinates.forEach((route)=>{
-          expect(route.constructor).toEqual(Array)
-        })
+        expect(routeObject.sights.constructor).toEqual(Array);
+        expect(routeObject.routePolyLine.constructor).toEqual(Array)
+        
       })
     });
 });

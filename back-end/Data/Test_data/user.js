@@ -1,7 +1,9 @@
 const userData = [
   {
+    displayName : 'James',
     username: "JamesO",
     avatar: "https://cdn.discordapp.com/embed/avatars/0.png",
+    location: 'London',
     settings: {
       searchRadius: 1000,
       location: {
@@ -11,8 +13,10 @@ const userData = [
     },
   },
   {
+    displayName: 'Dwayne',
     username: "DwayneA",
     avatar: "https://cdn.discordapp.com/embed/avatars/1.png",
+    location: 'Manchester',
     settings: {
       searchRadius: 1000,
       location: {
@@ -59,8 +63,10 @@ const userData = [
     },
   },
   {
+    displayName: 'Ellys',
     username: "EllysDG",
     avatar: "https://cdn.discordapp.com/embed/avatars/2.png",
+    location: 'Wales',
     settings: {
       searchRadius: 2000,
       location: {
@@ -70,8 +76,10 @@ const userData = [
     },
   },
   {
+    displayName : 'Billy',
     username: "BillyD",
     avatar: "https://cdn.discordapp.com/embed/avatars/3.png",
+    location: 'London',
     settings: {
       searchRadius: 1550,
       location: {
@@ -81,8 +89,10 @@ const userData = [
     },
   },
   {
+    displayName: 'Lentio',
     username: "LentioS",
     avatar: "https://cdn.discordapp.com/embed/avatars/4.png",
+    location: 'London',
     settings: {
       searchRadius: 1300,
       location: {
