@@ -104,7 +104,9 @@ describe("GET /api/users/:username", () => {
 describe("POST /api/users", () => {
   test("200 Posts new user with correct properties", () => {
     const newUser = {
+      displayName: "Peanut Brittle",
       username: "MrPeanut",
+      location: "Dublin",
       settings: {
         searchRadius: 790,
         location: {

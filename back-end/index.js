@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const { Location, User } = require("./seed.js");
 
 function connection() {
   return mongoose
