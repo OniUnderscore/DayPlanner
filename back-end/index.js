@@ -5,7 +5,7 @@ const { Location, User } = require("./seed.js");
 
 function connection() {
   return mongoose
-    .connect("mongodb://86.142.96.238:27017/DayPlanner")
+    .connect("mongodb://86.142.96.238:27017/DayPlanner-test")
     .then((result) => {
       return result;
     })

@@ -1,4 +1,5 @@
 const { Schema, mongoose, model } = require("mongoose");
+const { route } = require("../app");
 
 const locationSchema = new Schema({
   id: {
@@ -175,7 +176,24 @@ const UserSchema = new Schema({
   },
 });
 
+const routeSchema = new Schema({
+  username: {
+    type: String,
+    required: [true, "Please insert username"],
+  },
+  routePolyLine: {
+    type: [{longitude : Number, latitude: Number}],
+    required: true
+  },
+  sights: {
+    type: [Number],
+    required: true
+  }
+
+})
+
 const Location = mongoose.model("Location", locationSchema);
 const User = mongoose.model("User", UserSchema);
+const Route = mongoose.model("Route", routeSchema);
 
-module.exports = { locationSchema, UserSchema, Location, User };
+module.exports = { locationSchema, UserSchema, Location, User, Route, routeSchema };

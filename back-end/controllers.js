@@ -74,8 +74,9 @@ exports.getSights = (req, res, next) => {
 
 exports.postNewRoute = (req, res, next) => {
   const { username } = req.params
+  const {body} = req 
 
-  return postRoutes(username).then((response)=>{
-
+  return postRoutes(username, body).then((response)=>{
+    res.status(201).send(response)
   }) 
 }
