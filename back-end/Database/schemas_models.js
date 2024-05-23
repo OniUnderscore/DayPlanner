@@ -20,6 +20,10 @@ const locationSchema = new Schema({
   },
 });
 const UserSchema = new Schema({
+  displayName : {
+    type: String,
+    required: true
+  },
   username: {
     type: String,
     required: [true, "Please insert username"],
@@ -29,6 +33,10 @@ const UserSchema = new Schema({
     required: false,
     default:
       "https://upload.wikimedia.org/wikipedia/commons/a/af/Default_avatar_profile.jpg",
+  },
+  location : {
+    type: String,
+    require: true
   },
   settings: {
     searchRadius: Number,
