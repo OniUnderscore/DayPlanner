@@ -114,6 +114,75 @@ describe("POST /api/users", () => {
           lat: 51.52813,
         },
       },
+      filters: {
+        amenity: {
+          food: {
+            bar: false,
+            cafe: false,
+            fast_food: false,
+            food_court: false,
+            ice_cream: true,
+            pub: true,
+            restaurant: false,
+          },
+          entertainment: {
+            arts_centre: true,
+            casino: true,
+            cinema: true,
+            community_centre: true,
+            conference_centre: true,
+            events_venue: true,
+            exhibition_centre: true,
+            music_venue: true,
+            planetarium: true,
+            social_centre: true,
+            theatre: true,
+          },
+        },
+        historic: {
+          aqueduct: true,
+          castle: true,
+          castle_wall: true,
+          church: true,
+          citywalls: true,
+          fort: true,
+          manor: true,
+          memorial: true,
+          monument: true,
+          mosque: true,
+          temple: true,
+        },
+        leisure: {
+          amusement_arcade: true,
+          disc_golf_course: true,
+          escape_game: true,
+          garden: true,
+          ice_rink: true,
+          miniature_golf: true,
+          park: true,
+          nature_reserve: true,
+          stadium: true,
+          water_park: true,
+        },
+        shop: {
+          bakery: true,
+          chocolate: true,
+          coffee: true,
+          confectionary: true,
+          pastry: true,
+          department_store: true,
+          mall: true,
+        },
+        tourism: {
+          aquarium: true,
+          artwork: true,
+          attraction: true,
+          gallery: true,
+          museum: true,
+          theme_park: true,
+          zoo: true,
+        },
+      },
     };
     return request(app)
       .post("/api/users")
@@ -186,6 +255,43 @@ describe("PATCH /api/users/:username", () => {
             lat: 51.52813,
           },
         },
+        filters: {
+          amenity: {
+            arts_centre: false,
+            planetarium: false,
+            theatre: false,
+            marketplace: false,
+          },
+          historic: {
+            castle: true,
+            church: true,
+            fort: true,
+            manor: true,
+            monument: true,
+          },
+          leisure: {
+            amusement_arcade: true,
+            escape_game: true,
+            garden: true,
+            miniature_golf: true,
+            park: true,
+            nature_reserve: true,
+            stadium: true,
+            water_park: true,
+          },
+          shop: {
+            bakery: true,
+            coffee: true,
+          },
+          tourism: {
+            aquarium: true,
+            attraction: true,
+            gallery: true,
+            museum: true,
+            theme_park: true,
+            zoo: true,
+          },
+        },
       })
       .expect(200)
       .then(({ body }) => {
@@ -198,6 +304,43 @@ describe("PATCH /api/users/:username", () => {
               location: {
                 lon: -0.13071,
                 lat: 51.52813,
+              },
+            },
+            filters: {
+              amenity: {
+                arts_centre: false,
+                planetarium: false,
+                theatre: false,
+                marketplace: false,
+              },
+              historic: {
+                castle: true,
+                church: true,
+                fort: true,
+                manor: true,
+                monument: true,
+              },
+              leisure: {
+                amusement_arcade: true,
+                escape_game: true,
+                garden: true,
+                miniature_golf: true,
+                park: true,
+                nature_reserve: true,
+                stadium: true,
+                water_park: true,
+              },
+              shop: {
+                bakery: true,
+                coffee: true,
+              },
+              tourism: {
+                aquarium: true,
+                attraction: true,
+                gallery: true,
+                museum: true,
+                theme_park: true,
+                zoo: true,
               },
             },
           })
@@ -267,6 +410,32 @@ describe("PATCH /api/users/:username", () => {
             },
           })
         );
+      });
+  });
+});
+
+describe('GET /api/sights"', () => {
+  test("Should return a 200 status, with an array of location objects on success", () => {
+    const username = "JamesO";
+
+    return request(app)
+      .get(`/api/sights?username=${username}`)
+      .expect(200)
+      .then(({ body }) => {
+        expect(body.constructor).toEqual(Array);
+        expect(body.length).toEqual(26);
+      });
+  });
+
+  test("Should return a 200 status, with a filtered array of location objects on success, when given a user with defined filters", () => {
+    const username = "DwayneA";
+
+    return request(app)
+      .get(`/api/sights?username=${username}`)
+      .expect(200)
+      .then(({ body }) => {
+        expect(body.constructor).toEqual(Array);
+        expect(body.length).toEqual(4);
       });
   });
 });

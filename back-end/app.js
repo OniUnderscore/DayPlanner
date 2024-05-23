@@ -8,6 +8,7 @@ const {
   getUserById,
   postNewUser,
   patchUser,
+  getSights,
 } = require("./controllers");
 const {
   customError,
@@ -30,7 +31,7 @@ app.use((req, res, next) => {
   });
   next();
 });
-
+app.get("/api/sights", getSights);
 app.get("/api/sights/:sights_id", getSightsById);
 app.get("/api/users", getAllUsers);
 app.get("/api/users/:username", getUserById);

@@ -1,9 +1,11 @@
+const { response, search } = require("./app");
 const {
   fetchSightsById,
   fetchAllUsers,
   fetchUserById,
   saveNewUser,
   updateUser,
+  fetchAllSights,
 } = require("./models");
 
 exports.getSightsById = (req, res, next) => {
@@ -47,4 +49,21 @@ exports.patchUser = (req, res, next) => {
       res.status(200).send(response);
     })
     .catch(next);
+};
+
+exports.getSights = (req, res, next) => {
+  const { username } = req.query;
+
+  return fetchUserById(username)
+    .then((user) => {
+      const {
+        settings: {
+          searchRadius,
+          location: { lon, lat },
+        },
+        filters,
+      } = user;
+      return fetchAllSights(lon, lat, searchRadius, filters);
+    })
+    .then((response) => {});
 };
