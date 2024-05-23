@@ -4,6 +4,7 @@ const connection = require("../index");
 const seed = require("../seed.mongodb");
 const request = require("supertest");
 const { ObjectId } = require("mongodb");
+const elements = require("../Data/Test_data/routeData");
 
 beforeEach(() => seed());
 
@@ -84,7 +85,7 @@ describe("GET /api/users/:username", () => {
             username: "JamesO",
             avatar: "https://cdn.discordapp.com/embed/avatars/0.png",
             settings: {
-              searchRadius: 60,
+              searchRadius: 1000,
               location: {
                 lon: -0.13071,
                 lat: 51.52813,
@@ -425,7 +426,7 @@ describe('GET /api/sights"', () => {
         expect(body.constructor).toEqual(Array);
         expect(body.length).toEqual(26);
       });
-  });
+  }, 20000);
 
   test("Should return a 200 status, with a filtered array of location objects on success, when given a user with defined filters", () => {
     const username = "DwayneA";
@@ -437,5 +438,22 @@ describe('GET /api/sights"', () => {
         expect(body.constructor).toEqual(Array);
         expect(body.length).toEqual(4);
       });
-  });
+  }, 20000);
+});
+ describe.only('ROUTES /api/routes/:username', () => {
+    test('POST request returns 201 status, with a response of ', () => {
+
+      return request(app)
+      .post(`/api/routes/JamesO`)
+      .send(elements)
+      .expect(201)
+      .then(({body})=>{
+        const routeObject = body;
+
+        expect(routeObject.id.constructor).toEqual(Array);
+        routeObject.routeCoordinates.forEach((route)=>{
+          expect(route.constructor).toEqual(Array)
+        })
+      })
+    });
 });

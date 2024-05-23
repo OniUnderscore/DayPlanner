@@ -193,3 +193,8 @@ exports.fetchAllSights = (lon, lat, radius, filters) => {
       return response;
     });
 };
+
+exports.postRoute = (user) => {
+
+  return 
+}

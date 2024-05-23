@@ -1,0 +1,855 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.61.8 b1080abd",
+  "osm3s": {
+    "timestamp_osm_base": "2024-05-22T12:02:36Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 25508657,
+      "lat": 51.5220351,
+      "lon": -0.1226708,
+      "tags": {
+        "artwork_type": "statue",
+        "description": "maybe a queen",
+        "tourism": "artwork",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 25508658,
+      "lat": 51.5217357,
+      "lon": -0.1224809,
+      "tags": {
+        "artwork_type": "statue",
+        "description": "mother and baby",
+        "tourism": "artwork",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 332118767,
+      "lat": 51.5288526,
+      "lon": -0.1281323,
+      "tags": {
+        "addr:housenumber": "100-110",
+        "addr:street": "Euston Road",
+        "amenity": "theatre",
+        "name": "Shaw Theatre",
+        "postal_code": "NW1 2AJ",
+        "website": "https://www.shaw-theatre.com/",
+        "wheelchair": "yes",
+        "wikidata": "Q7491204",
+        "wikipedia": "en:Shaw Theatre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 425720622,
+      "lat": 51.5347478,
+      "lon": -0.1220578,
+      "tags": {
+        "addr:city": "London",
+        "addr:housename": "Kings Place",
+        "addr:housenumber": "90",
+        "addr:postcode": "N1 9AG",
+        "addr:street": "York Way",
+        "name": "Pangolini",
+        "tourism": "gallery"
+      }
+    },
+    {
+      "type": "node",
+      "id": 434557538,
+      "lat": 51.5347333,
+      "lon": -0.1388671,
+      "tags": {
+        "historic": "monument",
+        "name": "Cobden statue",
+        "start_date": "1868"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1043510888,
+      "lat": 51.5247382,
+      "lon": -0.1335088,
+      "tags": {
+        "addr:city": "London",
+        "addr:postcode": "WC1E 6BT",
+        "addr:street": "Gower Street",
+        "fee": "no",
+        "name": "The Octagon Gallery",
+        "opening_hours": "Mo-Su 09:00-19:00",
+        "operator": "University College London",
+        "operator:type": "university",
+        "toilets:wheelchair": "no",
+        "tourism": "gallery",
+        "website": "https://www.ucl.ac.uk/culture/octagon",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1216160782,
+      "lat": 51.523732,
+      "lon": -0.1342662,
+      "tags": {
+        "email": "museums@ucl.ac.uk",
+        "fee": "no",
+        "name": "Grant Museum of Zoology",
+        "opening_hours": "Tu-Fr 13:00-17:00; Sa 11:00-17:00",
+        "tourism": "museum",
+        "website": "http://www.ucl.ac.uk/museums/zoology",
+        "wheelchair": "limited",
+        "wikidata": "Q5596372",
+        "wikipedia": "en:Grant Museum of Zoology and Comparative Anatomy"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1519252920,
+      "lat": 51.5272435,
+      "lon": -0.1325382,
+      "tags": {
+        "historic": "monument",
+        "memorial": "war_memorial",
+        "source": "Survey of 2014-11-28",
+        "wikidata": "Q23988281",
+        "wikipedia": "en:London and North Western Railway War Memorial"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1656051617,
+      "lat": 51.5259494,
+      "lon": -0.1413586,
+      "tags": {
+        "name": "Seated figure statue",
+        "tourism": "artwork",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1669452706,
+      "lat": 51.5227069,
+      "lon": -0.1399104,
+      "tags": {
+        "artist": "Naomi Blake",
+        "artist:wikipedia": "Naomi Blake",
+        "artist_name": "Naomi Blake",
+        "artwork_type": "sculpture",
+        "description": "Her work developed through a cycle of embryonic forms, enclosed and protected figures, gradually opening out “to free the figure from its haven to stand against all adversity and spread its free wings”.",
+        "material": "bronze",
+        "name": "View",
+        "start_date": "1977",
+        "subject:wikidata": "Q6964622",
+        "subject:wikipedia": "en:Naomi Blake",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1731830617,
+      "lat": 51.521796,
+      "lon": -0.1287326,
+      "tags": {
+        "addr:city": "London",
+        "addr:postcode": "WC1H 0XG",
+        "addr:street": "Thornhaugh Street",
+        "fee": "no",
+        "name": "Brunei Gallery",
+        "opening_hours": "Tu-Sa 10:30-17:00; Th 10:30-20:00",
+        "operator": "SOAS",
+        "operator:type": "university",
+        "tourism": "museum",
+        "website": "https://www.soas.ac.uk/gallery/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1961648003,
+      "lat": 51.5297752,
+      "lon": -0.1188232,
+      "tags": {
+        "addr:city": "London",
+        "addr:housenumber": "6-24",
+        "addr:postcode": "WC1X 9JD",
+        "addr:street": "Britannia Street",
+        "name": "Gagosian",
+        "phone": "+44 20 7841 9960",
+        "source": "leaflet",
+        "tourism": "gallery",
+        "website": "https://gagosian.com/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2454280632,
+      "lat": 51.5362984,
+      "lon": -0.1388997,
+      "tags": {
+        "alt_name": "Panta Rei",
+        "name": "Πάντα ῥεῖ",
+        "name:el": "Πάντα ῥεῖ",
+        "name:en": "Everything flows",
+        "source": "Photograph from 10 September 2013",
+        "tourism": "artwork",
+        "url": "http://www.flickr.com/photos/jaggers/9723145099/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2617232245,
+      "lat": 51.5295982,
+      "lon": -0.1281295,
+      "tags": {
+        "addr:housenumber": "96",
+        "addr:street": "Euston Road",
+        "check_date": "2023-05-03",
+        "fee": "yes",
+        "name": "British Library Exhibition Space",
+        "opening_hours": "Jan-Dec: Mo, We-Fr 10:00-18:00; Jan-Dec: Tu 10:00-20:00; Sa 11:00-17:00; Su, PH off",
+        "phone": "+44 1937546546",
+        "toilets:wheelchair": "yes",
+        "tourism": "museum",
+        "website": "https://www.bl.uk/",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2617821322,
+      "lat": 51.5259739,
+      "lon": -0.1340195,
+      "tags": {
+        "addr:city": "London",
+        "addr:housenumber": "183",
+        "addr:postcode": "NW1 2BE",
+        "addr:street": "Euston Road",
+        "check_date:opening_hours": "2023-09-05",
+        "entrance": "main",
+        "fee": "no",
+        "name": "Wellcome Collection",
+        "opening_hours": "Tu-We 10:00-18:00; Th 10:00-20:00; Fr-Sa 10:00-18:00; Su 11:00-18:00",
+        "phone": "+44 20 7611 2222",
+        "source": "unknown;survey",
+        "toilets:wheelchair": "yes",
+        "tourism": "museum",
+        "website": "http://www.wellcomecollection.org",
+        "wheelchair": "yes",
+        "wikidata": "Q7981191",
+        "wikipedia": "en:Wellcome Collection"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2617831369,
+      "lat": 51.5290366,
+      "lon": -0.1275758,
+      "tags": {
+        "artwork_type": "statue",
+        "name": "Newton After Blake",
+        "tourism": "artwork",
+        "wikidata": "Q25291883",
+        "wikipedia": "en:Newton (Paolozzi)"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2622783204,
+      "lat": 51.5225232,
+      "lon": -0.1391153,
+      "tags": {
+        "addr:housenumber": "37",
+        "addr:street": "Fitzroy Street",
+        "email": "info@fitzroyhouse.org",
+        "fee": "no",
+        "museum": "person",
+        "name": "Fitzroy House",
+        "opening_hours": "\"by appointment\"",
+        "operator": "Church of Scientology",
+        "operator:type": "private",
+        "phone": "+44 20 7255 2422",
+        "subject:wikidata": "Q216896",
+        "tourism": "museum",
+        "website": "https://www.fitzroyhouse.org/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2850211433,
+      "lat": 51.5302669,
+      "lon": -0.1250544,
+      "tags": {
+        "artist_name": "Paul Day",
+        "artwork_type": "statue",
+        "building:levels": "1",
+        "level": "1",
+        "name": "The Meeting Place",
+        "tourism": "artwork",
+        "website": "https://pauldaysculpture.com/",
+        "wheelchair": "yes",
+        "wikidata": "Q48699598",
+        "wikipedia": "en:Paul Day (sculptor)"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2850222762,
+      "lat": 51.530596,
+      "lon": -0.1259413,
+      "tags": {
+        "artist_name": "Martin Jennings",
+        "artwork_type": "sculpture",
+        "name": "Betjemen Sculpture",
+        "note": "Upper Concourse",
+        "tourism": "artwork",
+        "website": "https://martinjennings.com/projects/betjeman",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2972228375,
+      "lat": 51.5258142,
+      "lon": -0.1403557,
+      "tags": {
+        "amenity": "arts_centre",
+        "name": "diorama"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2972228377,
+      "lat": 51.5246574,
+      "lon": -0.1426947,
+      "tags": {
+        "artwork_type": "sculpture",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3310086154,
+      "lat": 51.5305318,
+      "lon": -0.1259753,
+      "tags": {
+        "amenity": "cafe",
+        "brand": "Paul",
+        "brand:wikidata": "Q3370417",
+        "brand:wikipedia": "en:Paul (bakery)",
+        "building:levels": "0",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "level": "0",
+        "name": "Paul Express",
+        "outdoor_seating": "no",
+        "shop": "bakery",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3310091767,
+      "lat": 51.5316288,
+      "lon": -0.1265531,
+      "tags": {
+        "building:levels": "0",
+        "level": "0",
+        "name": "Grind",
+        "name:zh": "Links of London 珠宝店",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "shop": "coffee",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3711917741,
+      "lat": 51.5315358,
+      "lon": -0.1269014,
+      "tags": {
+        "addr:city": "London",
+        "addr:housename": "St Pancras International",
+        "addr:postcode": "N1C 4QL",
+        "addr:street": "Euston Road",
+        "addr:unit": "61d",
+        "amenity": "fast_food",
+        "brand": "Greggs",
+        "brand:wikidata": "Q3403981",
+        "brand:wikipedia": "en:Greggs",
+        "cuisine": "sandwich;bakery",
+        "diet:vegetarian": "yes",
+        "flickr": "https://www.flickr.com/photos/harrywood/24842822055",
+        "level": "1",
+        "name": "Greggs",
+        "payment:cash": "yes",
+        "seating": "yes",
+        "shop": "bakery",
+        "smoking": "no",
+        "source:addr:postcode": "code-point_open",
+        "takeaway": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4307665990,
+      "lat": 51.5280014,
+      "lon": -0.1216561,
+      "tags": {
+        "addr:city": "London",
+        "addr:housenumber": "74-76",
+        "addr:postcode": "WC1H 8DR",
+        "addr:street": "Cromer Street",
+        "amenity": "arts_centre",
+        "level": "0",
+        "name": "Arts Catalyst Centre for Arts, Science, and Technology",
+        "website": "https://www.artscatalyst.org/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4689285191,
+      "lat": 51.521791,
+      "lon": -0.1401646,
+      "tags": {
+        "name": "Banksy - If graffiti changed anything",
+        "name:en": "Banksy - If graffiti changed anything",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4837670108,
+      "lat": 51.5322489,
+      "lon": -0.1270077,
+      "tags": {
+        "amenity": "fast_food",
+        "brand": "Greggs",
+        "brand:wikidata": "Q3403981",
+        "brand:wikipedia": "en:Greggs",
+        "cuisine": "sandwich;bakery",
+        "diet:vegetarian": "yes",
+        "level": "0",
+        "name": "Greggs",
+        "shop": "bakery",
+        "takeaway": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5029665757,
+      "lat": 51.531669,
+      "lon": -0.1279676,
+      "tags": {
+        "addr:city": "London",
+        "addr:housename": "The Francis Crick Institute",
+        "addr:housenumber": "1",
+        "addr:postcode": "NW1 1AT",
+        "addr:street": "Midland Road",
+        "fee": "no",
+        "name": "Crick Exhibition",
+        "opening_hours": "We 10:00-20:00; Th-Sa 10:00-16:00; Su-Tu off",
+        "tourism": "museum",
+        "website": "https://www.crick.ac.uk/whats-on/exhibitions"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5223921503,
+      "lat": 51.5319083,
+      "lon": -0.1277695,
+      "tags": {
+        "artist_name": "Conrad Shawcross",
+        "artwork_type": "statue",
+        "name": "Paradigm",
+        "start_date": "2016",
+        "tourism": "artwork",
+        "wikidata": "Q27943358"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5376720946,
+      "lat": 51.5223423,
+      "lon": -0.1286702,
+      "tags": {
+        "artwork_type": "statue",
+        "name": "Thiruvalluvar",
+        "note": "Presented to SOAS by the Government of Tamil Nadu and unveiled on 13 May 1996",
+        "operator": "SOAS",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5586700868,
+      "lat": 51.5275208,
+      "lon": -0.1334364,
+      "tags": {
+        "historic": "monument",
+        "monument": "statue",
+        "name": "Robert Stephenson"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5720813658,
+      "lat": 51.5207669,
+      "lon": -0.1350649,
+      "tags": {
+        "addr:street": "Tottenham Street",
+        "name": "Community mural",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6180929595,
+      "lat": 51.5227112,
+      "lon": -0.139246,
+      "tags": {
+        "artwork_type": "statue",
+        "name": "Francisco De Miranda",
+        "tourism": "artwork",
+        "wikimedia_commons": "File:Francisco de Miranda-1.jpg"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6464684079,
+      "lat": 51.5291749,
+      "lon": -0.1317955,
+      "tags": {
+        "artwork_type": "sculpture",
+        "level": "1",
+        "name": "Virgin Mary",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6582725771,
+      "lat": 51.5292528,
+      "lon": -0.1288306,
+      "tags": {
+        "addr:city": "London",
+        "addr:housename": "Levita House",
+        "addr:postcode": "NW1 1JJ",
+        "addr:street": "Chalton Street",
+        "description": "This area has newly been upgraded for the residents of Levita house to start gardening and growing small vegetables and fruits where possible",
+        "leisure": "park",
+        "name": "Levita House Plantation",
+        "opening_hours": "24/7",
+        "operator": "Camden"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7036429086,
+      "lat": 51.5286208,
+      "lon": -0.1292937,
+      "tags": {
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7908687314,
+      "lat": 51.5250974,
+      "lon": -0.1352968,
+      "tags": {
+        "artwork_type": "bust",
+        "name": "Hippocrates",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7908711129,
+      "lat": 51.5245915,
+      "lon": -0.1336937,
+      "tags": {
+        "artwork_type": "statue",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7908711130,
+      "lat": 51.5246858,
+      "lon": -0.133799,
+      "tags": {
+        "artwork_type": "statue",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8071803025,
+      "lat": 51.5294316,
+      "lon": -0.1257524,
+      "tags": {
+        "amenity": "telephone",
+        "booth": "K6",
+        "covered": "booth",
+        "description": "This box is a non functioning red phone box now run by a charity. and restored to how it would look in the 1940s",
+        "end_date": "2023-12-31",
+        "listed_status": "Grade II",
+        "name": "Restored K6 phone booth",
+        "old_phone": "+44 20 7278 5424",
+        "operator": "Building Centre",
+        "payment:none": "yes",
+        "tourism": "museum",
+        "website": "https://www.buildingcentre.co.uk/whats_on/exhibitions/the-k6",
+        "wikidata": "Q27087267"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8149477846,
+      "lat": 51.5219021,
+      "lon": -0.1296405,
+      "tags": {
+        "artist_name": "Arielle Tse",
+        "artwork_type": "sculpture",
+        "name": "I am rooted, but I flow",
+        "start_date": "November 2018",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9532639233,
+      "lat": 51.5289709,
+      "lon": -0.1280509,
+      "tags": {
+        "artist_name": "Keith Grant",
+        "artwork_type": "sculpture",
+        "name": "St Joan",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9569807899,
+      "lat": 51.5257264,
+      "lon": -0.138857,
+      "tags": {
+        "note": "mural at high level",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9690053141,
+      "lat": 51.53073,
+      "lon": -0.1219527,
+      "tags": {
+        "historic": "monument",
+        "name": "The Lighthouse"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9690430370,
+      "lat": 51.5273586,
+      "lon": -0.130089,
+      "tags": {
+        "artwork_type": "statue",
+        "name": "David Breuer-Weil",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9883821517,
+      "lat": 51.5333629,
+      "lon": -0.1215244,
+      "tags": {
+        "artwork_type": "sculpture",
+        "check_date": "2022-07-12",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9897350907,
+      "lat": 51.5354786,
+      "lon": -0.1346738,
+      "tags": {
+        "addr:city": "London",
+        "addr:housename": "26 Crowndale",
+        "addr:housenumber": "26",
+        "addr:postcode": "NW1 1TT",
+        "addr:street": "Crowndale Road",
+        "amenity": "theatre",
+        "floor": "1",
+        "name": "The Gate Theatre",
+        "url": "http://www.gatetheatre.co.uk/",
+        "website": "https://www.gatetheatre.co.uk/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10013375318,
+      "lat": 51.5314904,
+      "lon": -0.1240619,
+      "tags": {
+        "artist_name": "Hazel Reeves",
+        "artwork_type": "statue",
+        "check_date": "2022-09-10",
+        "name": "Sir Nigel Gresley",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10060457174,
+      "lat": 51.5210988,
+      "lon": -0.1366173,
+      "tags": {
+        "artist:wikidata": "Q37772236",
+        "artist_name": "Hugo Dalton",
+        "artwork_type": "sculpture",
+        "material": "metal",
+        "name": "Choreographic Form",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10130184218,
+      "lat": 51.5343542,
+      "lon": -0.1274606,
+      "tags": {
+        "amenity": "bench",
+        "name": "The Olympic Ring benches",
+        "note": "Part of the Olympic Rings from St Pancras Station",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10130184219,
+      "lat": 51.5343413,
+      "lon": -0.1274472,
+      "tags": {
+        "amenity": "bench",
+        "name": "The Olympic Ring benches",
+        "note": "Part of the Olympic Rings from St Pancras Station",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10130184220,
+      "lat": 51.5344286,
+      "lon": -0.1275318,
+      "tags": {
+        "amenity": "bench",
+        "name": "The Olympic Ring benches",
+        "note": "Part of the Olympic Rings from St Pancras Station",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10130184221,
+      "lat": 51.5344439,
+      "lon": -0.1275229,
+      "tags": {
+        "amenity": "bench",
+        "name": "The Olympic Ring benches",
+        "note": "Part of the Olympic Rings from St Pancras Station",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10605699826,
+      "lat": 51.532118,
+      "lon": -0.1259404,
+      "tags": {
+        "artist_name": "Shezad Dawood",
+        "artwork_type": "statue",
+        "name": "HMS Alice Liddell",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10699089656,
+      "lat": 51.5306515,
+      "lon": -0.1309767,
+      "tags": {
+        "amenity": "cafe",
+        "name": "Flori Canto",
+        "shop": "coffee"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10978649041,
+      "lat": 51.5247332,
+      "lon": -0.1281754,
+      "tags": {
+        "artwork_type": "statue",
+        "direction": "290",
+        "memorial": "statue",
+        "name": "Louisa Brandreth Aldrich-Blake",
+        "source": "Survey of 2014-10-05",
+        "subject:wikidata": "Q4793315",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11203135024,
+      "lat": 51.5277341,
+      "lon": -0.1330943,
+      "tags": {
+        "artwork_type": "statue",
+        "name": "Captain Matthew Flinders",
+        "tourism": "artwork"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11343549362,
+      "lat": 51.5255052,
+      "lon": -0.125335,
+      "tags": {
+        "check_date": "2023-12-22",
+        "cuisine": "lebanese",
+        "indoor_seating": "yes",
+        "name": "Ta‘Mini",
+        "outdoor_seating": "yes",
+        "shop": "bakery"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11811065252,
+      "lat": 51.5284966,
+      "lon": -0.1317986,
+      "tags": {
+        "brand": "GAIL's Bakery",
+        "brand:wikidata": "Q110662562",
+        "indoor_seating": "yes",
+        "name": "GAIL's",
+        "outdoor_seating": "yes",
+        "shop": "bakery"
+      }
+    }
+  ]
+}

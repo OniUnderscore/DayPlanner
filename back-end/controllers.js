@@ -6,6 +6,7 @@ const {
   saveNewUser,
   updateUser,
   fetchAllSights,
+  postRoutes
 } = require("./models");
 
 exports.getSightsById = (req, res, next) => {
@@ -65,5 +66,15 @@ exports.getSights = (req, res, next) => {
       } = user;
       return fetchAllSights(lon, lat, searchRadius, filters);
     })
-    .then((response) => {});
+    .then((response) => {
+      res.status(200).send(response)
+    });
 };
+
+exports.postNewRoute = (req, res, next) => {
+  const { username } = req.params
+
+  return postRoutes(username).then((response)=>{
+
+  }) 
+}
