@@ -3,6 +3,7 @@ const locationsData = require("./Data/Test_data/location");
 const userData = require("./Data/Test_data/user");
 const connection = require("./index");
 const { Location, User, Route } = require("./Database/schemas_models");
+const {route} = require("./Data/Test_data/routes")
 
 function seed() {
   return connection()
@@ -30,6 +31,11 @@ function seed() {
           return newUser.save();
         })
       );
+    })
+    .then(()=>{
+      console.log(route)
+      const newRoute = new Route(route);
+      return newRoute.save();
     })
     .then(() => {
       mongoose.disconnect();
