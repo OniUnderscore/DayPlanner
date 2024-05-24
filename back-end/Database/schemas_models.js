@@ -16,7 +16,19 @@ const locationSchema = new Schema({
   tags: {
     name: String,
     amenity: String,
+    website: String,
+    wheelchair: String,
+    opening_hours: String,
+    phone: String,
   },
+  totalRating: {
+    type: Number,
+    default: 0
+    },
+  numberOfVotes: {
+    type: Number,
+    default: 0
+  }
 });
 const UserSchema = new Schema({
   displayName: {

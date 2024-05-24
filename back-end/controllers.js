@@ -9,7 +9,8 @@ const {
   fetchUserRoutes,
   fetchRouteByID,
   updateRoute,
-  removeRoute
+  removeRoute,
+  updateSight
 } = require("./models");
 
 exports.getSightsById = (req, res, next) => {
@@ -117,4 +118,14 @@ exports.deleteRoute = (req, res, next) => {
   .then(() => {
     res.status(204).send('')
   })
+}
+
+exports.patchSight = (req, res, next) => {
+  const {sights_id} = req.params
+  const {inc_rating} = req.body
+  return updateSight(sights_id, inc_rating)
+  .then((response) => {
+    res.status(201).send(response)
+  })
+  .catch(next)
 }
