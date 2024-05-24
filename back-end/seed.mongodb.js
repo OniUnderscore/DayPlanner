@@ -33,7 +33,6 @@ function seed() {
       );
     })
     .then(()=>{
-      console.log(route)
       const newRoute = new Route(route);
       return newRoute.save();
     })

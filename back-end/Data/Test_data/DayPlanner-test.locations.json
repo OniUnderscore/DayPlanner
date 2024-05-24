@@ -1,4 +1,4 @@
-const locationsData = [{
+[{
   "id": 25475389,
   "lat": 51.5265807,
   "lon": -0.1292505,
@@ -138,5 +138,3 @@ const locationsData = [{
     "name": "Cobden statue"
   }
 }]
-
-module.exports = locationsData;

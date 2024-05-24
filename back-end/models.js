@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const { getRadius, getData, makeRoute } = require("./Database/apiCalls");
 const { Location, User, Route } = require("./Database/schemas_models");
 
@@ -243,3 +244,26 @@ exports.postRoutes = (user, sights) => {
       return response[0];
     });
 };
+
+exports.fetchUserRoutes = (username) => {
+
+  return Route.find({username: username}).exec()
+  .then((response) =>{
+    console.log(response)
+    return response
+  })
+}
+
+exports.fetchRouteByID = (id) => {
+
+  return Route.findById(id).lean().exec()
+  .then((response)=>{
+    const sightIds =  response.sights;
+    console.log(sightIds)
+   
+    return Promise.all([Location.find({id:{$in: sightIds}}).exec(), response])}).then(([sights, route])=>{
+    
+    route.sights = sights
+    return route
+  })
+}
