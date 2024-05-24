@@ -284,4 +284,17 @@ exports.removeRoute = (id) => {
         return true
     })
 }
+
+exports.updateSight = (id, newRating) => {
+    return Location.find({id: id}).exec()
+    .then((response) => {
+        if(response.length === 0) {
+            return Promise.reject({status: 404, msg: 'not found'})
+        }
+        response[0].totalRating += newRating
+        response[0].numberOfVotes++
+        return response[0].save()
+    })
+    
+}
     
