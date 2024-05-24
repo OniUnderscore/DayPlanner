@@ -2,6 +2,8 @@ const app = require("../app");
 const seed = require("../seed.mongodb");
 const request = require("supertest");
 const elements = require("../Data/Test_data/routeData");
+const { Route } = require("../Database/schemas_models");
+const connection = require("../index");
 
 beforeEach(() => seed());
 
@@ -447,8 +449,8 @@ describe('GET /api/sights"', () => {
       });
   });
 });
-describe("POST ROUTES /api/routes/:username", () => {
-  test("POST request returns 201 status, with a response of a \`route\` object", () => {
+describe("ROUTES /api/routes/:username", () => {
+  test.only("POST request returns 201 status, with a response of a \`route\` object", () => {
     const body = elements;
     return request(app)
       .post(`/api/routes/JamesO`)
@@ -537,16 +539,47 @@ describe("POST ROUTES /api/routes/:username", () => {
       })
   });
 });
-describe.only('GET ROUTES by Username - /api/routes/:username', () => {
+describe('ROUTES by Username - /api/routes/:username', () => {
   test('Returns 200 and an array of route objects', () => {
     
     return request(app)
-    .get("/api/routes/JamesO")
+    .get("/api/JamesO/routes")
     .expect(200)
     .then(({body}) => {
 
       expect(Array.isArray(body)).toBe(true);
       expect(body.length!==0).toBe(true);
     })
+  });
+  test('Returns 200, and empty routes array when requesting routes for non-existent user', () => {
+    
+    return request(app)
+    .get("/api/James(Evil)/routes")
+    .expect(200)
+    .then(({body}) => {
+      expect(body.length===0).toBe(true);
+    })
+  });
+});
+describe.only('ROUTES by ID', () => {
+  test('GET /api/routes/:id', () => {
+    return connection().then(()=>{
+      return Route.find({}).exec()})
+      .then((response)=>{
+        const { _id } = response[0]
+
+      return request(app)
+      .get(`/api/routes/${_id.toString()}`)
+      .expect(200) 
+      }).then(({body})=>{
+
+        expect(body).toEqual(expect.objectContaining({
+          name: "Sausage Roll Route",      
+          username: "JamesO",
+          routePolyLine: expect.any(Array),
+          sights: expect.any(Array)
+              })
+            )
+        })
   });
 });

@@ -6,7 +6,8 @@ const {
   updateUser,
   fetchAllSights,
   postRoutes,
-  fetchUserRoutes
+  fetchUserRoutes,
+  fetchRouteByID,
 } = require("./models");
 
 exports.getSightsById = (req, res, next) => {
@@ -87,6 +88,13 @@ exports.getRoutes = (req,res,next) => {
     const { username} = req.params;
 
   return fetchUserRoutes(username).then((response)=>{
+    res.status(200).send(response)
+  })
+}
+exports.getRoutesByID = (req,res,next) => {
+  const { id } = req.params
+
+  return fetchRouteByID(id).then((response)=>{
     res.status(200).send(response)
   })
 }
