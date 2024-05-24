@@ -11,7 +11,9 @@ const {
   getSights,
   postNewRoute,
   getRoutes,
-  getRoutesByID
+  getRoutesByID,
+  patchRoute,
+  deleteRoute
 } = require("./controllers");
 const {
   customError,
@@ -43,6 +45,8 @@ app.get("/api/:username/routes", getRoutes)
 app.get("/api/routes/:id", getRoutesByID)
 app.patch("/api/users/:username", patchUser);
 app.post("/api/routes/:username", postNewRoute)
+app.patch("/api/routes/:id", patchRoute)
+app.delete('/api/routes/:id', deleteRoute)
 
 app.all("*", (req, res, next) => {
   res.status(404).send({ msg: "route does not exist" });

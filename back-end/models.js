@@ -258,7 +258,7 @@ exports.fetchRouteByID = (id) => {
   return Route.findById(id).lean().exec()
   .then((response)=>{
     const sightIds =  response.sights;
-    console.log(sightIds)
+    
    
     return Promise.all([Location.find({id:{$in: sightIds}}).exec(), response])}).then(([sights, route])=>{
     
@@ -266,3 +266,22 @@ exports.fetchRouteByID = (id) => {
     return route
   })
 }
+
+exports.updateRoute = (id, newName) => {
+    return Route.findById(id).exec()
+    .then((response) => {
+        if(!response){
+            return Promise.reject({status: 404, msg: 'not found'})
+        }
+        response.name = newName
+        return response.save()
+    })
+}
+
+exports.removeRoute = (id) => {
+    return Route.findByIdAndDelete(id).exec()
+    .then(() => {
+        return true
+    })
+}
+    
