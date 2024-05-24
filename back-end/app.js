@@ -9,7 +9,8 @@ const {
   postNewUser,
   patchUser,
   getSights,
-  postNewRoute
+  postNewRoute,
+  getRoutes
 } = require("./controllers");
 const {
   customError,
@@ -38,6 +39,7 @@ app.get("/api/users", getAllUsers);
 app.get("/api/users/:username", getUserById);
 app.post("/api/users", postNewUser);
 app.patch("/api/users/:username", patchUser);
+app.get("/api/routes/:username", getRoutes)
 app.post("/api/routes/:username", postNewRoute)
 
 app.all("*", (req, res, next) => {

@@ -184,6 +184,11 @@ const UserSchema = new Schema({
 });
 
 const routeSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+    default: "My Route",
+  },
   username: {
     type: String,
     required: [true, "Please insert username"],

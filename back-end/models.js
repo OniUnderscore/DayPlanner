@@ -243,3 +243,12 @@ exports.postRoutes = (user, sights) => {
       return response[0];
     });
 };
+
+exports.fetchUserRoutes = (username) => {
+
+  return Route.find({username: username}).exec()
+  .then((response) =>{
+    console.log(response)
+    return response
+  })
+}

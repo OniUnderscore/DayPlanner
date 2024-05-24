@@ -438,7 +438,7 @@ describe('GET /api/sights"', () => {
         expect(body.length).toEqual(4);
       });
   }, 20000);
-  test.only("Should return 404 not found error when passed an incorrect username", () => {
+  test("Should return 404 not found error when passed an incorrect username", () => {
     return request(app)
       .get("/api/sights?username=JamesP")
       .expect(404)
@@ -447,7 +447,7 @@ describe('GET /api/sights"', () => {
       });
   });
 });
-describe("ROUTES /api/routes/:username", () => {
+describe("POST ROUTES /api/routes/:username", () => {
   test("POST request returns 201 status, with a response of a \`route\` object", () => {
     const body = elements;
     return request(app)
@@ -535,5 +535,18 @@ describe("ROUTES /api/routes/:username", () => {
   
         expect(body.msg).toBe("not found")
       })
+  });
+});
+describe.only('GET ROUTES by Username - /api/routes/:username', () => {
+  test('Returns 200 and an array of route objects', () => {
+    
+    return request(app)
+    .get("/api/routes/JamesO")
+    .expect(200)
+    .then(({body}) => {
+
+      expect(Array.isArray(body)).toBe(true);
+      expect(body.length!==0).toBe(true);
+    })
   });
 });
