@@ -249,7 +249,6 @@ exports.fetchUserRoutes = (username) => {
 
   return Route.find({username: username}).exec()
   .then((response) =>{
-    console.log(response)
     return response
   })
 }

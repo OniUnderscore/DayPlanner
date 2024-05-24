@@ -4,7 +4,11 @@ const app = express();
 
 function connection() {
   return mongoose
-    .connect("mongodb://86.142.96.238:27017/DayPlanner-test")
+    .connect("mongodb://86.142.96.238:27017/DayPlanner", {
+      authSource: "admin",
+      user: "admin",
+      pass: "1231",
+    })
     .then((result) => {
       return result;
     })

@@ -450,7 +450,7 @@ describe('GET /api/sights"', () => {
   });
 });
 describe("ROUTES /api/routes/:username", () => {
-  test.only("POST request returns 201 status, with a response of a \`route\` object", () => {
+  test("POST request returns 201 status, with a response of a `route` object", () => {
     const body = elements;
     return request(app)
       .post(`/api/routes/JamesO`)
@@ -463,123 +463,123 @@ describe("ROUTES /api/routes/:username", () => {
         expect(routeObject.routePolyLine.constructor).toEqual(Array);
       });
   });
-  test('Returns 400, when sent an invalid route object body', () => {
-    const body = [{
-      "type": "node",
-      "id": 25475389,
-      "lat": 51.5220351,
-      "tags": {
-        "artwork_type": "statue",
-        "description": "maybe a queen",
-        "tourism": "monument",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "node",
-      "id": 25508658,
-      "lat": 51.5217357,
-      "tags": {
-        "artwork_type": "statue",
-        "description": "mother and baby",
-        "wheelchair": "yes"
-      }
-    }]
-
-    return request(app)
-    .post(`/api/routes/JamesO`)
-    .send(body)
-    .expect(400)
-    .then(({body})=>{
-
-      expect(body.msg).toBe("bad request")
-    })
-  });
-  test('Returns 404, when making the request with a non-existent user ', () => {
-    const body = [{
-        "type": "node",
-        "id": 25475389,
-        "lat": 51.5265807,
-        "lon": -0.1292505,
-        "tags": {
-          "amenity": "cafe",
-          "fixme": "not on FHRS",
-          "name": "Woburn Cafe"
-        }
+  test("Returns 400, when sent an invalid route object body", () => {
+    const body = [
+      {
+        type: "node",
+        id: 25475389,
+        lat: 51.5220351,
+        tags: {
+          artwork_type: "statue",
+          description: "maybe a queen",
+          tourism: "monument",
+          wheelchair: "yes",
+        },
       },
       {
-        "type": "node",
-        "id": 257937397,
-        "lat": 51.5231854,
-        "lon": -0.138689,
-        "tags": {
+        type: "node",
+        id: 25508658,
+        lat: 51.5217357,
+        tags: {
+          artwork_type: "statue",
+          description: "mother and baby",
+          wheelchair: "yes",
+        },
+      },
+    ];
+
+    return request(app)
+      .post(`/api/routes/JamesO`)
+      .send(body)
+      .expect(400)
+      .then(({ body }) => {
+        expect(body.msg).toBe("bad request");
+      });
+  });
+  test("Returns 404, when making the request with a non-existent user ", () => {
+    const body = [
+      {
+        type: "node",
+        id: 25475389,
+        lat: 51.5265807,
+        lon: -0.1292505,
+        tags: {
+          amenity: "cafe",
+          fixme: "not on FHRS",
+          name: "Woburn Cafe",
+        },
+      },
+      {
+        type: "node",
+        id: 257937397,
+        lat: 51.5231854,
+        lon: -0.138689,
+        tags: {
           "addr:city": "London",
           "addr:housenumber": "72",
           "addr:postcode": "W1T 5DU",
           "addr:street": "Grafton Way",
-          "amenity": "pub",
-          "check_date": "2023-05-26",
+          amenity: "pub",
+          check_date: "2023-05-26",
           "fhrs:id": "426441",
-          "indoor_seating": "yes",
-          "name": "The Grafton Arms",
-          "outdoor_seating": "yes",
-          "roof_terrace": "yes",
+          indoor_seating: "yes",
+          name: "The Grafton Arms",
+          outdoor_seating: "yes",
+          roof_terrace: "yes",
           "source:addr": "FHRS Open Data",
-          "website": "https://www.graftonarms.co.uk/"
-        }
-      }]
-  
-      return request(app)
+          website: "https://www.graftonarms.co.uk/",
+        },
+      },
+    ];
+
+    return request(app)
       .post(`/api/routes/Cathulu`)
       .send(body)
       .expect(404)
-      .then(({body})=>{
-  
-        expect(body.msg).toBe("not found")
+      .then(({ body }) => {
+        expect(body.msg).toBe("not found");
+      });
+  });
+});
+describe("ROUTES by Username - /api/routes/:username", () => {
+  test("Returns 200 and an array of route objects", () => {
+    return request(app)
+      .get("/api/JamesO/routes")
+      .expect(200)
+      .then(({ body }) => {
+        expect(Array.isArray(body)).toBe(true);
+        expect(body.length !== 0).toBe(true);
+      });
+  });
+  test("Returns 200, and empty routes array when requesting routes for non-existent user", () => {
+    return request(app)
+      .get("/api/James(Evil)/routes")
+      .expect(200)
+      .then(({ body }) => {
+        expect(body.length === 0).toBe(true);
+      });
+  });
+});
+describe("ROUTES by ID", () => {
+  test("GET /api/routes/:id", () => {
+    return connection()
+      .then(() => {
+        return Route.find({}).exec();
       })
-  });
-});
-describe('ROUTES by Username - /api/routes/:username', () => {
-  test('Returns 200 and an array of route objects', () => {
-    
-    return request(app)
-    .get("/api/JamesO/routes")
-    .expect(200)
-    .then(({body}) => {
+      .then((response) => {
+        const { _id } = response[0];
 
-      expect(Array.isArray(body)).toBe(true);
-      expect(body.length!==0).toBe(true);
-    })
-  });
-  test('Returns 200, and empty routes array when requesting routes for non-existent user', () => {
-    
-    return request(app)
-    .get("/api/James(Evil)/routes")
-    .expect(200)
-    .then(({body}) => {
-      expect(body.length===0).toBe(true);
-    })
-  });
-});
-describe.only('ROUTES by ID', () => {
-  test('GET /api/routes/:id', () => {
-    return connection().then(()=>{
-      return Route.find({}).exec()})
-      .then((response)=>{
-        const { _id } = response[0]
-
-      return request(app)
-      .get(`/api/routes/${_id.toString()}`)
-      .expect(200) 
-      }).then(({body})=>{
-
-        expect(body).toEqual(expect.objectContaining({
-          name: "Sausage Roll Route",      
-          username: "JamesO",
-          routePolyLine: expect.any(Array),
-          sights: expect.any(Array)
-              })
-            )
-        })
+        return request(app).get(`/api/routes/${_id.toString()}`).expect(200);
+      })
+      .then(({ body }) => {
+        expect(body).toEqual(
+          expect.objectContaining({
+            name: "Sausage Roll Route",
+            username: "JamesO",
+            routePolyLine: expect.any(Array),
+            sights: expect.any(Array),
+          })
+        );
+      });
   });
 });
