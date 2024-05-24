@@ -447,8 +447,8 @@ describe('GET /api/sights"', () => {
       });
   });
 });
-describe("ROUTES /api/routes/:username", () => {
-  test("POST request returns 201 status, with a response of ", () => {
+describe.only("ROUTES /api/routes/:username", () => {
+  test("POST request returns 201 status, with a response of a \`route\` object", () => {
     const body = elements;
     return request(app)
       .post(`/api/routes/JamesO`)
@@ -460,5 +460,80 @@ describe("ROUTES /api/routes/:username", () => {
         expect(routeObject.sights.constructor).toEqual(Array);
         expect(routeObject.routePolyLine.constructor).toEqual(Array);
       });
+  });
+  test('Returns 400, when sent an invalid route object body', () => {
+    const body = [{
+      "type": "node",
+      "id": 25475389,
+      "lat": 51.5220351,
+      "tags": {
+        "artwork_type": "statue",
+        "description": "maybe a queen",
+        "tourism": "monument",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 25508658,
+      "lat": 51.5217357,
+      "tags": {
+        "artwork_type": "statue",
+        "description": "mother and baby",
+        "wheelchair": "yes"
+      }
+    }]
+
+    return request(app)
+    .post(`/api/routes/JamesO`)
+    .send(body)
+    .expect(400)
+    .then(({body})=>{
+
+      expect(body.msg).toBe("bad request")
+    })
+  });
+  test('should ', () => {
+    const body = [{
+        "type": "node",
+        "id": 25475389,
+        "lat": 51.5265807,
+        "lon": -0.1292505,
+        "tags": {
+          "amenity": "cafe",
+          "fixme": "not on FHRS",
+          "name": "Woburn Cafe"
+        }
+      },
+      {
+        "type": "node",
+        "id": 257937397,
+        "lat": 51.5231854,
+        "lon": -0.138689,
+        "tags": {
+          "addr:city": "London",
+          "addr:housenumber": "72",
+          "addr:postcode": "W1T 5DU",
+          "addr:street": "Grafton Way",
+          "amenity": "pub",
+          "check_date": "2023-05-26",
+          "fhrs:id": "426441",
+          "indoor_seating": "yes",
+          "name": "The Grafton Arms",
+          "outdoor_seating": "yes",
+          "roof_terrace": "yes",
+          "source:addr": "FHRS Open Data",
+          "website": "https://www.graftonarms.co.uk/"
+        }
+      }]
+  
+      return request(app)
+      .post(`/api/routes/Cathulu`)
+      .send(body)
+      .expect(404)
+      .then(({body})=>{
+  
+        expect(body.msg).toBe("not found")
+      })
   });
 });

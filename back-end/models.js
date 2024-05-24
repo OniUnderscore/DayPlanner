@@ -204,11 +204,12 @@ exports.postRoutes = (user, sights) => {
     User.find({ username: user }),
   ])
     .then((response) => {
-      console.log(response[1]);
       const ids = response[0].map((id) => {
         return id.id;
       });
-
+      if (response[1].length===0) {
+        return Promise.reject({status: 404, msg: "not found"})
+      }
       coordinateArray.unshift([
         response[1][0].settings.location.lon,
         response[1][0].settings.location.lat,

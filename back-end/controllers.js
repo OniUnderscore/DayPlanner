@@ -77,5 +77,7 @@ exports.postNewRoute = (req, res, next) => {
 
   return postRoutes(username, body).then((response) => {
     res.status(201).send(response);
+  }).catch((err)=>{
+    next(err)
   });
 };

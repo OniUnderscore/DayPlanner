@@ -44,5 +44,8 @@ exports.makeRoute = (coordinateArray) => {
     return lineCoords.map((coord) => {
       return {latitude: coord[1], longitude: coord[0]}
     })
+  }).catch((err)=>{
+    if (err)
+    return Promise.reject({status: 400, msg: "bad request"})
   })
 }
