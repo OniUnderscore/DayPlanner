@@ -583,3 +583,125 @@ describe("ROUTES by ID", () => {
       });
   });
 });
+
+describe("PATCH /api/routes/:id", () => {
+  test('201: correctly updates the route object properties', () => {
+    return connection()
+    .then(() => {
+      return Route.find({}).exec();
+    })
+    .then((response) => {
+      const { _id } = response[0];
+      const body = {
+        name: 'Philip'
+      }
+      return request(app).patch(`/api/routes/${_id.toString()}`)
+      .expect(201)
+      .send(body)
+    })
+    .then(({body}) => {
+      expect(body).toEqual(expect.objectContaining({
+        name: 'Philip' 
+      }))
+    })  
+  })
+  test('400 returns bad request when passed malformed body', () => {
+    return connection()
+    .then(() => {
+      return Route.find({}).exec();
+    })
+    .then((response) => {
+      const { _id } = response[0];
+      const body = {
+        nkme: 'Philip'
+      }
+      return request(app).patch(`/api/routes/${_id.toString()}`)
+      .send(body)
+      .expect(400)
+    })
+    .then(({body}) => {
+      expect(body.msg).toEqual('bad request')})
+  })
+  test('404 returns bad request when passed malformed body', () => {
+    const body = {
+      name: 'Philip'
+    }
+      return request(app).patch(`/api/routes/665050b935948685ed5cb917`)
+      .send(body)
+      .expect(404)
+    .then(({body}) => {
+      expect(body.msg).toEqual('not found')})
+  })
+})
+describe('DELETE /api/routes/:id', () => {
+  test('204 Correctly removes route', () => {
+    return connection()
+    .then(() => {
+      return Route.find({}).exec();
+    })
+    .then((response) => {
+      const { _id } = response[0];
+      return request(app).delete(`/api/routes/${_id.toString()}`)
+      .expect(204)
+    })
+  })
+})
+
+describe('PATCH: /api/sights/:sightsId', () => {
+  test('Correctly update sight with sent information', () => {
+  
+    const body = 
+      {
+        inc_rating: 3
+      } 
+    
+    return request(app)
+    .patch('/api/sights/294599679')
+    .send(body)
+    .expect(201)
+    .then(({body}) => {
+      expect(body.id).toBe(294599679)
+      expect(body.totalRating).toBe(3)
+      expect(body.numberOfVotes).toBe(1)
+    })
+  })
+  test("404 Returns not found if passed a sight that doesn't exist", () => {
+    const body = 
+      {
+        inc_rating: 3
+      }  
+    return request(app)
+    .patch('/api/sights/1')
+    .send(body)
+    .expect(404)
+    .then(({body}) => {
+      expect(body.msg).toBe('not found')
+    })
+  })
+  test("400 Returns bad request if passed malformed body withincorrect key name", () => {
+    const body = 
+      {
+        incting: 3
+      }  
+    return request(app)
+      .patch('/api/sights/294599679')
+    .send(body)
+    .expect(400)
+    .then(({body}) => {
+      expect(body.msg).toBe('bad request')
+    })
+  })
+  test("400 Returns bad request if passed malformed body with incorrect data type", () => {
+    const body = 
+      {
+        inc_rating: 'peanuts'
+      }  
+    return request(app)
+      .patch('/api/sights/294599679')
+    .send(body)
+    .expect(400)
+    .then(({body}) => {
+      expect(body.msg).toBe('bad request')
+    })
+  })
+})
