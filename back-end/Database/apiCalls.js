@@ -1,14 +1,15 @@
 const axios = require("axios");
 
 const orsApi = axios.create({
-  baseURL: "http://86.142.96.238:8082/ors",
+  baseURL: "https://api.openrouteservice.org",
+  headers: {
+    Authorization: "5b3ce3597851110001cf624840553bc790fb492d88e4c62ca229c625",
+  },
 });
 
 const overpassApi = axios.create({
   baseURL: "https://overpass-api.de/api",
 });
-
-
 
 exports.getRadius = (lat, lon, radius) => {
   return orsApi
@@ -38,14 +39,17 @@ exports.getData = (queryString) => {
 };
 
 exports.makeRoute = (coordinateArray) => {
-  return orsApi.post('/v2/directions/foot-walking/geojson', {coordinates : coordinateArray})
-  .then((response) => {
-    const lineCoords = response.data.features[0].geometry.coordinates
-    return lineCoords.map((coord) => {
-      return {latitude: coord[1], longitude: coord[0]}
+  return orsApi
+    .post("/v2/directions/foot-walking/geojson", {
+      coordinates: coordinateArray,
     })
-  }).catch((err)=>{
-    if (err)
-    return Promise.reject({status: 400, msg: "bad request"})
-  })
-}
+    .then((response) => {
+      const lineCoords = response.data.features[0].geometry.coordinates;
+      return lineCoords.map((coord) => {
+        return { latitude: coord[1], longitude: coord[0] };
+      });
+    })
+    .catch((err) => {
+      if (err) return Promise.reject({ status: 400, msg: "bad request" });
+    });
+};
