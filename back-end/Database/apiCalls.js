@@ -1,10 +1,14 @@
 const axios = require("axios");
 
+// const orsApi = axios.create({
+//   baseURL: "https://api.openrouteservice.org",
+//   headers: {
+//     Authorization: "5b3ce3597851110001cf624840553bc790fb492d88e4c62ca229c625",
+//   },
+// });
+
 const orsApi = axios.create({
-  baseURL: "https://api.openrouteservice.org",
-  headers: {
-    Authorization: "5b3ce3597851110001cf624840553bc790fb492d88e4c62ca229c625",
-  },
+  baseURL: "http://86.142.96.238:8082/ors",
 });
 
 const overpassApi = axios.create({
