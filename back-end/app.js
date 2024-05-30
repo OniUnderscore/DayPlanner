@@ -31,12 +31,13 @@ app.use((req, res, next) => {
   });
 });
 
-app.use((req, res, next) => {
-  res.on("finish", () => {
-    return mongoose.connection.close();
-  });
-  next();
-});
+// app.use((req, res, next) => {
+//   res.on("finish", () => {
+//     return mongoose.connection.close();
+//   });
+//   next();
+// });
+
 app.get("/api/sights", getSights);
 app.get("/api/sights/:sights_id", getSightsById);
 app.get("/api/users", getAllUsers);
