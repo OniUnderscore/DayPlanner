@@ -5,7 +5,7 @@ const app = express();
 function connection() {
   return mongoose
     .connect(
-      "mongodb+srv://jsmilezz052:BnkJNB4pGloVf1o4@cluster0.iexwylq.mongodb.net/DayPlanner_DB_backend?retryWrites=true&w=majority&appName=Cluster0"
+      "mongodb+srv://jsmilezz052:BnkJNB4pGloVf1o4@cluster0.iexwylq.mongodb.net/DayPlanner_DB?retryWrites=true&w=majority&appName=Cluster0"
     )
     .then((result) => {
       return result;
