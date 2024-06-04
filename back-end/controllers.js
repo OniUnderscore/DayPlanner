@@ -10,8 +10,10 @@ const {
   fetchRouteByID,
   updateRoute,
   removeRoute,
-  updateSight
+  updateSight,
 } = require("./models");
+
+const { readFile } = require("fs/promises");
 
 exports.getSightsById = (req, res, next) => {
   const { sights_id } = req.params;
@@ -80,52 +82,60 @@ exports.postNewRoute = (req, res, next) => {
   const { username } = req.params;
   const { body } = req;
 
-  return postRoutes(username, body).then((response) => {
-    res.status(201).send(response);
-  }).catch((err)=>{
-    next(err)
+  return postRoutes(username, body)
+    .then((response) => {
+      res.status(201).send(response);
+    })
+    .catch((err) => {
+      next(err);
+    });
+};
+
+exports.getRoutes = (req, res, next) => {
+  const { username } = req.params;
+
+  return fetchUserRoutes(username).then((response) => {
+    res.status(200).send(response);
+  });
+};
+exports.getRoutesByID = (req, res, next) => {
+  const { id } = req.params;
+
+  return fetchRouteByID(id).then((response) => {
+    res.status(200).send(response);
   });
 };
 
-exports.getRoutes = (req,res,next) => {
-    const { username} = req.params;
-
-  return fetchUserRoutes(username).then((response)=>{
-    res.status(200).send(response)
-  })
-}
-exports.getRoutesByID = (req,res,next) => {
-  const { id } = req.params
-
-  return fetchRouteByID(id).then((response)=>{
-    res.status(200).send(response)
-  })
-}
-
 exports.patchRoute = (req, res, next) => {
-  const {id} = req.params
-  const {name} = req.body
+  const { id } = req.params;
+  const { name } = req.body;
 
-  return updateRoute(id, name).then((response) => {
-    res.status(201).send(response)
-  })
-  .catch(next)
-}
+  return updateRoute(id, name)
+    .then((response) => {
+      res.status(201).send(response);
+    })
+    .catch(next);
+};
 
 exports.deleteRoute = (req, res, next) => {
-  const {id} = req.params
-  return removeRoute(id)
-  .then(() => {
-    res.status(204).send('')
-  })
-}
+  const { id } = req.params;
+  return removeRoute(id).then(() => {
+    res.status(204).send("");
+  });
+};
 
 exports.patchSight = (req, res, next) => {
-  const {sights_id} = req.params
-  const {inc_rating} = req.body
+  const { sights_id } = req.params;
+  const { inc_rating } = req.body;
   return updateSight(sights_id, inc_rating)
-  .then((response) => {
-    res.status(201).send(response)
-  })
-  .catch(next)
-}
+    .then((response) => {
+      res.status(201).send(response);
+    })
+    .catch(next);
+};
+
+exports.getAPI = (req, res, next) => {
+  return readFile("./endpoints.json", "utf-8").then((endpoints) => {
+    res.status(200).send({ endpoints });
+  });
+};

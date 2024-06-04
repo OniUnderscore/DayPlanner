@@ -1,17 +1,314 @@
 {
-    "GET /api/sights/:sight_id": {
-        "description": "serves an object with a sights information",
-        "queries": [],
-        "exampleResponse": {
-          "sight": {
-            "id": 25475389,
-            "lat": 51.5265807,
-            "lon": -0.1292505,
-            "tags": {
-              "amenity": "cafe",
-              "name": "Woburn Cafe"
-        }
+  "GET /api/sights/:sight_id": {
+    "description": "serves an object with a sights information",
+    "queries": [],
+    "exampleResponse": {
+      "sight": {
+        "id": 25475389,
+        "lat": 51.5265807,
+        "lon": -0.1292505,
+        "tags": {
+          "amenity": "cafe",
+          "name": "Woburn Cafe"
         }
       }
-}
+    }
+  },
+
+  "GET /api/sights": {
+    "description": "Gets all sights around a logged in user",
+    "queries": [],
+    "exampleResponse": [
+      {
+        "sight": {
+          "id": 25475389,
+          "lat": 51.5265807,
+          "lon": -0.1292505,
+          "tags": {
+            "amenity": "cafe",
+            "name": "Woburn Cafe"
+          }
+        }
+      }
+    ]
+  },
+  "GET /api/users": {
+    "description": "Gets a list of all user objects",
+    "queries": [],
+    "exampleResponse": [
+      {
+        "_id": "665ef04bbb0c83f0979ce356",
+        "displayName": "James",
+        "username": "JamesO",
+        "avatar": "https://cdn.discordapp.com/embed/avatars/0.png",
+        "location": "London",
+        "settings": {
+          "searchRadius": 1000,
+          "location": { "longitude": 0, "latitude": 0 }
+        },
+        "filters": {
+          "amenity": {},
+          "historic": {},
+          "leisure": {},
+          "shop": {},
+          "tourism": {}
+        },
+        "__v": 0
+      }
+    ]
+  },
+  "GET /api/users/:username": {
+    "description": "Gets a specific user object",
+    "queries": [],
+    "exampleResponse": {
+      "_id": "665ef04bbb0c83f0979ce356",
+      "displayName": "James",
+      "username": "JamesO",
+      "avatar": "https://cdn.discordapp.com/embed/avatars/0.png",
+      "location": "London",
+      "settings": {
+        "searchRadius": 1000,
+        "location": { "longitude": 0, "latitude": 0 }
+      },
+      "filters": {
+        "amenity": {},
+        "historic": {},
+        "leisure": {},
+        "shop": {},
+        "tourism": {}
+      },
+      "__v": 0
+    }
+  },
+  "POST /api/users": {
+    "description": "Posts a new user to the database",
+    "queries": [],
+    "expectedBody": {
+      "displayName": "James",
+      "username": "JamesO",
+      "avatar": "https://cdn.discordapp.com/embed/avatars/0.png",
+      "location": "London",
+      "settings": {
+        "searchRadius": 1000,
+        "location": { "longitude": 0, "latitude": 0 }
+      },
+      "filters": {
+        "amenity": {},
+        "historic": {},
+        "leisure": {},
+        "shop": {},
+        "tourism": {}
+      }
+    },
+    "exampleResponse": [
+      {
+        "_id": "665ef04bbb0c83f0979ce356",
+        "displayName": "James",
+        "username": "JamesO",
+        "avatar": "https://cdn.discordapp.com/embed/avatars/0.png",
+        "location": "London",
+        "settings": {
+          "searchRadius": 1000,
+          "location": { "longitude": 0, "latitude": 0 }
+        },
+        "filters": {
+          "amenity": {},
+          "historic": {},
+          "leisure": {},
+          "shop": {},
+          "tourism": {}
+        },
+        "__v": 0
+      }
+    ]
+  },
+
+  "PATCH /api/users/:username": {
+    "description": "Change properties on a specific user object",
+    "queries": [],
+    "expectedBody": {
+      "displayName": "JammyO",
+      "avatar": "https://cdn.discordapp.com/embed/avatars/3.png",
+      "settings": {
+        "searchRadius": 500,
+        "location": { "longitude": 100, "latitude": 0 }
+      },
+      "filters": {
+        "amenity": {},
+        "historic": {},
+        "leisure": {},
+        "shop": {},
+        "tourism": {}
+      }
+    },
+    "exampleResponse": {
+      "_id": "665ef04bbb0c83f0979ce356",
+      "displayName": "JammyO",
+      "username": "JamesO",
+      "avatar": "https://cdn.discordapp.com/embed/avatars/3.png",
+      "location": "London",
+      "settings": {
+        "searchRadius": 500,
+        "location": { "longitude": 100, "latitude": 0 }
+      },
+      "filters": {
+        "amenity": {},
+        "historic": {},
+        "leisure": {},
+        "shop": {},
+        "tourism": {}
+      },
+      "__v": 0
+    }
+  },
+  "POST /api/routes/:username": {
+    "description": "Creates a new route from selected points",
+    "queries": [],
+    "expectedBody": [
+      {
+        "type": "node",
+        "id": 25475389,
+        "lat": 51.5220351,
+        "lon": -0.1226708,
+        "tags": {
+          "artwork_type": "statue",
+          "description": "maybe a queen",
+          "tourism": "monument",
+          "wheelchair": "yes"
+        }
+      }
+    ],
+    "exampleResponse": {
+      "name": "Sausage Roll Route",
+      "username": "JamesO",
+      "routePolyLine": [
+        {
+          "longitude": -0.130695,
+          "latitude": 51.528114
+        },
+        {
+          "longitude": -0.130281,
+          "latitude": 51.528265
+        }
+      ],
+      "sights": [25475389]
+    }
+  },
+  "GET /api/:username/routes": {
+    "description": "Returns a list of routes associated with a username",
+    "queries": [],
+    "exampleResponse": [
+      {
+        "name": "Sausage Roll Route",
+        "username": "JamesO",
+        "routePolyLine": [
+          {
+            "longitude": -0.130695,
+            "latitude": 51.528114
+          },
+          {
+            "longitude": -0.130281,
+            "latitude": 51.528265
+          }
+        ],
+        "sights": [
+          {
+            "id": 25475389,
+            "lat": 51.5220351,
+            "lon": -0.1226708,
+            "tags": {
+              "tourism": "monument",
+              "wheelchair": "yes"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "GET /api/routes/:id": {
+    "description": "Returns a single route based on a given ID",
+    "queries": [],
+    "exampleResponse": [
+      {
+        "name": "Sausage Roll Route",
+        "username": "JamesO",
+        "routePolyLine": [
+          {
+            "longitude": -0.130695,
+            "latitude": 51.528114
+          },
+          {
+            "longitude": -0.130281,
+            "latitude": 51.528265
+          }
+        ],
+        "sights": [
+          {
+            "id": 25475389,
+            "lat": 51.5220351,
+            "lon": -0.1226708,
+            "tags": {
+              "tourism": "monument",
+              "wheelchair": "yes"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "PATCH /api/routes/:id": {
+    "description": "Changes the name of a route, and returns the updated object",
+    "queries": [],
+    "expectedBody": { "name": "Vegan Sausage Roll Route" },
+    "exampleResponse": [
+      {
+        "name": "Vegan Sausage Roll Route",
+        "username": "JamesO",
+        "routePolyLine": [
+          {
+            "longitude": -0.130695,
+            "latitude": 51.528114
+          },
+          {
+            "longitude": -0.130281,
+            "latitude": 51.528265
+          }
+        ],
+        "sights": [
+          {
+            "id": 25475389,
+            "lat": 51.5220351,
+            "lon": -0.1226708,
+            "tags": {
+              "tourism": "monument",
+              "wheelchair": "yes"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "DELETE /api/routes/:id": {
+    "description": "Rmoves a route from the database",
+    "queries": [],
+    "exampleResponse": {}
+  },
+  "PATCH /api/sights/:sightsid": {
+    "description": "Patches a vote to a sight in the database",
+    "queries": [],
+    "expectedBody": { "inc_rating": 3 },
+    "exampleResponse": {
+      "sight": {
+        "id": 25475389,
+        "lat": 51.5265807,
+        "lon": -0.1292505,
+        "totalRating": 3,
+        "numberOfVotes": 1,
+        "tags": {
+          "amenity": "cafe",
+          "name": "Woburn Cafe"
+        }
+      }
+    }
+  }
 }

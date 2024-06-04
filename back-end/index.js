@@ -4,11 +4,9 @@ const app = express();
 
 function connection() {
   return mongoose
-    .connect("mongodb://86.142.96.238:27017/DayPlanner", {
-      authSource: "admin",
-      user: "admin",
-      pass: "1231",
-    })
+    .connect(
+      "mongodb+srv://jsmilezz052:BnkJNB4pGloVf1o4@cluster0.iexwylq.mongodb.net/DayPlanner_DB?retryWrites=true&w=majority&appName=Cluster0"
+    )
     .then((result) => {
       return result;
     })
